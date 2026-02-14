@@ -1,0 +1,203 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Character Editor",
+   LoadingTitle = "Loading...",
+   LoadingSubtitle = "maxxrealm anticheat test only to be used by tester",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil,
+      FileName = "CharacterConfig"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
+   },
+   KeySystem = false,
+})
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Attributes Tab
+local AttributesTab = Window:CreateTab("Attributes", 4483362458)
+local AttributesSection = AttributesTab:CreateSection("Player Attributes")
+
+AttributesTab:CreateSlider({
+   Name = "Dexterity",
+   Range = {0, 20},
+   Increment = 1,
+   Suffix = "Points",
+   CurrentValue = 7,
+   Flag = "DexSlider",
+   Callback = function(Value)
+       player:SetAttribute("Att_Dexterity", Value)
+   end,
+})
+
+AttributesTab:CreateSlider({
+   Name = "Strength",
+   Range = {0, 20},
+   Increment = 1,
+   Suffix = "Points",
+   CurrentValue = 6,
+   Flag = "StrSlider",
+   Callback = function(Value)
+       player:SetAttribute("Att_Strength", Value)
+   end,
+})
+
+AttributesTab:CreateSlider({
+   Name = "Conservation",
+   Range = {0, 20},
+   Increment = 1,
+   Suffix = "Points",
+   CurrentValue = 10,
+   Flag = "ConSlider",
+   Callback = function(Value)
+       player:SetAttribute("Att_Conservation", Value)
+   end,
+})
+
+AttributesTab:CreateSlider({
+   Name = "Efficiency",
+   Range = {0, 20},
+   Increment = 1,
+   Suffix = "Points",
+   CurrentValue = 6,
+   Flag = "EffSlider",
+   Callback = function(Value)
+       player:SetAttribute("Att_Efficiency", Value)
+   end,
+})
+
+AttributesTab:CreateSlider({
+   Name = "Fortitude",
+   Range = {0, 20},
+   Increment = 1,
+   Suffix = "Points",
+   CurrentValue = 5,
+   Flag = "FortSlider",
+   Callback = function(Value)
+       player:SetAttribute("Att_Fortitude", Value)
+   end,
+})
+
+-- Hitbox Tab
+local HitboxTab = Window:CreateTab("Hitbox", 4483362458)
+local HitboxSection = HitboxTab:CreateSection("Left Arm Hitbox")
+
+local leftX = 19
+local leftY = 19
+local leftZ = 19
+
+HitboxTab:CreateSlider({
+   Name = "Left Arm X",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "LeftXSlider",
+   Callback = function(Value)
+       leftX = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Left Arm"].HitboxPart.Size = Vector3.new(leftX, leftY, leftZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Left Arm Y",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "LeftYSlider",
+   Callback = function(Value)
+       leftY = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Left Arm"].HitboxPart.Size = Vector3.new(leftX, leftY, leftZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Left Arm Z",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "LeftZSlider",
+   Callback = function(Value)
+       leftZ = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Left Arm"].HitboxPart.Size = Vector3.new(leftX, leftY, leftZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Left Arm Transparency",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "%",
+   CurrentValue = 0,
+   Flag = "LeftTransSlider",
+   Callback = function(Value)
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Left Arm"].HitboxPart.Transparency = Value / 100
+   end,
+})
+
+local RightHitboxSection = HitboxTab:CreateSection("Right Arm Hitbox")
+
+local rightX = 19
+local rightY = 19
+local rightZ = 19
+
+HitboxTab:CreateSlider({
+   Name = "Right Arm X",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "RightXSlider",
+   Callback = function(Value)
+       rightX = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Right Arm"].HitboxPart.Size = Vector3.new(rightX, rightY, rightZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Right Arm Y",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "RightYSlider",
+   Callback = function(Value)
+       rightY = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Right Arm"].HitboxPart.Size = Vector3.new(rightX, rightY, rightZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Right Arm Z",
+   Range = {1, 50},
+   Increment = 1,
+   Suffix = "Size",
+   CurrentValue = 19,
+   Flag = "RightZSlider",
+   Callback = function(Value)
+       rightZ = Value
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Right Arm"].HitboxPart.Size = Vector3.new(rightX, rightY, rightZ)
+   end,
+})
+
+HitboxTab:CreateSlider({
+   Name = "Right Arm Transparency",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "%",
+   CurrentValue = 0,
+   Flag = "RightTransSlider",
+   Callback = function(Value)
+       game.Workspace.Characters.adoptme_sCaNNer.ODMG["Right Arm"].HitboxPart.Transparency = Value / 100
+   end,
+})
+
+print("Rayfield Menu Loaded!")
